@@ -12,39 +12,48 @@ public class MagicSquare {
 		magicSquare = new int[size][size];
 		if (sence.equalsIgnoreCase("NO")) {
 			if (ubication.equalsIgnoreCase("UP")) {
-				// The user chose to fill the magic cube in the northwest direction and start at the top
-				noUp(numero,size);
+				// The user chose to fill the magic cube in the northwest direction and start at
+				// the top
+				noUp(numero, size);
 			} else if (ubication.equalsIgnoreCase("LEFT")) {
-				// The user chose to fill the magic cube in the northwest direction and start on the left
-				noLeft(numero,size);
+				// The user chose to fill the magic cube in the northwest direction and start on
+				// the left
+				noLeft(numero, size);
 			}
 		} else if (sence.equalsIgnoreCase("NE")) {
 			if (ubication.equalsIgnoreCase("UP")) {
-				// The user chose to fill the magic cube in the northeast direction and start at the top
-				neUp(numero,size);
+				// The user chose to fill the magic cube in the northeast direction and start at
+				// the top
+				neUp(numero, size);
 			} else if (ubication.equalsIgnoreCase("RIGHT")) {
-				// The user chose to fill the magic cube in the northeast direction and start on the right
-				neRight(numero,size);
+				// The user chose to fill the magic cube in the northeast direction and start on
+				// the right
+				neRight(numero, size);
 			}
 		} else if (sence.equalsIgnoreCase("SO")) {
 			if (ubication.equalsIgnoreCase("DOWN")) {
-				// The user chose to fill the magic cube in the southwest direction and start at the bottom
-				soDown(numero,size);
+				// The user chose to fill the magic cube in the southwest direction and start at
+				// the bottom
+				soDown(numero, size);
 			} else if (ubication.equalsIgnoreCase("LEFT")) {
-				// The user chose to fill the magic cube in the southwest direction and start on the left
-				soLeft(numero,size);
+				// The user chose to fill the magic cube in the southwest direction and start on
+				// the left
+				soLeft(numero, size);
 			}
 		} else if (sence.equalsIgnoreCase("SE")) {
 			if (ubication.equalsIgnoreCase("DOWN")) {
-				// The user chose to fill the magic cube in the southeast direction and start at the bottom
-				seDown(numero,size);
+				// The user chose to fill the magic cube in the southeast direction and start at
+				// the bottom
+				seDown(numero, size);
 			} else if (ubication.equalsIgnoreCase("RIGHT")) {
-				// The user chose to fill the magic cube in the southeast direction and start on the right
-				seRight(numero,size);
+				// The user chose to fill the magic cube in the southeast direction and start on
+				// the right
+				seRight(numero, size);
 			}
 		}
 	}
-	public void noUp(int numero,int size) {
+
+	public void noUp(int numero, int size) {
 		int fila = 0;
 		int column = (int) Math.floor(size / 2);
 		for (int i = 0; i < magicSquare.length * magicSquare.length; i++) {
@@ -78,7 +87,7 @@ public class MagicSquare {
 		}
 	}
 
-	public void noLeft(int numero,int size) {
+	public void noLeft(int numero, int size) {
 		int fila = (int) Math.floor(size / 2);
 		int column = 0;
 		for (int i = 0; i < magicSquare.length * magicSquare.length; i++) {
@@ -111,8 +120,8 @@ public class MagicSquare {
 			}
 		}
 	}
-	
-	public void neUp(int numero,int size) {
+
+	public void neUp(int numero, int size) {
 		int fila = 0;
 		int column = (int) Math.floor(size / 2);
 		for (int i = 0; i < magicSquare.length * magicSquare.length; i++) {
@@ -146,8 +155,8 @@ public class MagicSquare {
 			}
 		}
 	}
-	
-	public void neRight(int numero,int size) {
+
+	public void neRight(int numero, int size) {
 		int column = magicSquare.length - 1;
 		int fila = (int) Math.floor(size / 2);
 		for (int i = 0; i < magicSquare.length * magicSquare.length; i++) {
@@ -183,8 +192,8 @@ public class MagicSquare {
 			}
 		}
 	}
-	
-	public void soDown(int numero,int size) {
+
+	public void soDown(int numero, int size) {
 		int column = (int) Math.floor(size / 2);
 		int fila = magicSquare.length - 1;
 		for (int i = 0; i < magicSquare.length * magicSquare.length; i++) {
@@ -220,8 +229,8 @@ public class MagicSquare {
 			}
 		}
 	}
-	
-	public void soLeft(int numero,int size){
+
+	public void soLeft(int numero, int size) {
 		int fila = (int) Math.floor(size / 2);
 		int column = 0;
 		for (int i = 0; i < magicSquare.length * magicSquare.length; i++) {
@@ -257,8 +266,8 @@ public class MagicSquare {
 			}
 		}
 	}
-	
-	public void seDown(int numero,int size) {
+
+	public void seDown(int numero, int size) {
 		int fila = magicSquare.length - 1;
 		int column = (int) Math.floor(size / 2);
 		for (int i = 0; i < magicSquare.length * magicSquare.length; i++) {
@@ -295,7 +304,7 @@ public class MagicSquare {
 		}
 	}
 
-	public void seRight(int numero,int size) {
+	public void seRight(int numero, int size) {
 		int fila = magicSquare.length - 1;
 		int column = (int) Math.floor(size / 2);
 		for (int i = 0; i < magicSquare.length * magicSquare.length; i++) {
@@ -330,8 +339,8 @@ public class MagicSquare {
 			}
 		}
 	}
-		
-	public int[][] getMagicSquare(){
+
+	public int[][] getMagicSquare() {
 		return magicSquare;
 	}
 }
