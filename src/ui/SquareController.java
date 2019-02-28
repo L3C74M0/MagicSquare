@@ -54,44 +54,41 @@ public class SquareController {
 	}
 
 	@FXML
-	public void fillMagicSquare(ActionEvent event) {
+	public void fillMagicSquare(ActionEvent event) throws Exception {
 		try {
 			int sizeSquare = Integer.parseInt(size.getText());
-			if (sizeSquare % 2 == 0) {
-				Alert alert = new Alert(AlertType.WARNING, "Please enter an odd number", ButtonType.CLOSE);
-				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-				alert.show();
-			} else {
-				gridPane.getChildren().clear();
-				try {
-					boolean option = true;
-					magicSquare.fillSquare(sizeSquare, sence.getValue(), ubication.getValue());
-					int[][] square = magicSquare.getMagicSquare();
-					for (int i = 0; i < sizeSquare && option == true; i++) {
-						for (int j = 0; j < sizeSquare && option == true; j++) {
-							int number = square[i][j];
-							if (square[i][j] == 0) {
-								option = false;
-							} else {
-								Button buton = new Button("" + number);
-								GridPane.setConstraints(buton, j, i, 1, 1);
-								gridPane.getChildren().addAll(buton);
-							}
-						}
+			gridPane.getChildren().clear();
+			boolean option = true;
+			magicSquare.fillSquare(sizeSquare, sence.getValue(), ubication.getValue());
+			int[][] square = magicSquare.getMagicSquare();
+			for (int i = 0; i < sizeSquare && option == true; i++) {
+				for (int j = 0; j < sizeSquare && option == true; j++) {
+					int number = square[i][j];
+					if (square[i][j] == 0) {
+						option = false;
+					} else {
+						Button buton = new Button("" + number);
+						GridPane.setConstraints(buton, j, i, 1, 1);
+						gridPane.getChildren().addAll(buton);
 					}
-					if (option == false) {
-						Alert alert = new Alert(AlertType.WARNING, "Please select a valid option", ButtonType.CLOSE);
-						alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-						alert.show();
-					}
-				} catch (NullPointerException e) {
-					Alert alert = new Alert(AlertType.WARNING, "Please select an option", ButtonType.CLOSE);
-					alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-					alert.show();
 				}
 			}
+			if (option == false) {
+				Alert alert = new Alert(AlertType.WARNING, "Please select a valid option", ButtonType.CLOSE);
+				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+				alert.show();
+			}
+		} catch (NullPointerException e) {
+			Alert alert = new Alert(AlertType.WARNING, "Please select an option", ButtonType.CLOSE);
+			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+			alert.show();
+
 		} catch (NumberFormatException e) {
-			Alert alert = new Alert(AlertType.WARNING, "Please enter some value", ButtonType.CLOSE);
+			Alert alert = new Alert(AlertType.WARNING, e.getMessage(), ButtonType.CLOSE);
+			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+			alert.show();
+		} catch (Exception e) {
+			Alert alert = new Alert(AlertType.WARNING, e.getMessage(), ButtonType.CLOSE);
 			alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
 			alert.show();
 		}
