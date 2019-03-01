@@ -180,4 +180,28 @@ class MagicSquareTest {
 		}
 		assertFalse(f);
 	}
+	
+	@Test
+	public void testFillSquareForm11() {
+		setupScenary1();
+		boolean f=true;
+		try {
+			magic.fillSquare(0, "NO", "UP");
+		} catch (Exception e) {
+			f = false;
+		}
+		assertFalse(f);
+	}
+	
+	@Test
+	public void testFillSquareForm12() {
+		setupScenary1();
+		boolean f=true;
+		try {
+			magic.fillSquare(-4, "NO", "UP");
+		} catch (Exception e) {
+			f = false;
+		}
+		assertFalse(f);
+	}
 }
